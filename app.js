@@ -58,13 +58,24 @@ let moveObs = setInterval(function(){
   oLeft = oLeft - 5;
   obs.style.left = oLeft + 'px';
 
-  // الالرت
-  if(checkHit(obs)){
-    alert("💥 Your Score:"+ score);
-    clearInterval(moveObs);
-    clearInterval(obsInterval);
-    location.reload();
+if (checkHit(obs)) {
+  gameOver = true;
+  clearInterval(moveObs);
+  clearInterval(obsInterval);
+
+  const gameOverMessage = document.querySelector('#game-over-message');
+  const finalScoreText = document.querySelector('#final-score-text');
+  gameOverMessage.classList.remove('hidden');
+
+  if (score >= 20) {
+    finalScoreText.textContent = `✅ You Win! Your Score: ${score}`;
+  } else {
+    finalScoreText.textContent = `💥 Game Over! Your Score: ${score}`;
   }
+
+  return;
+}
+
 
   // إذا انتهت العقبات تنحذف عشان لا تشير اللعبة
   if(oLeft < -30){
@@ -91,3 +102,11 @@ function checkHit(obs) {
   );
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const restartButton = document.querySelector('#restart-button');
+  if (restartButton) {
+    restartButton.addEventListener('click', () => {
+      location.reload(); // Reload the page
+    });
+  }
+});
