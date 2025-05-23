@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const restartButton = document.querySelector('#restart-button');
   if (restartButton) {
     restartButton.addEventListener('click', () => {
-      location.reload(); // Reload the page
+      location.reload();
     });
   }
 });
