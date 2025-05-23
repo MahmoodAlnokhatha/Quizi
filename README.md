@@ -28,7 +28,7 @@
 
 ## Highlights
 #### 🧱 Padding utlization in JS
-Padding in JavaScript is used to create safe space around Quizi to prevent early collision detection with Lightning.
+Padding used in the code, is to create safe space around Quizi to prevent early collision detection with Lightning.
 
 ```javascript
 let padding = 10;
